@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.corretora.homebroker.compra.dto.CompraDTO;
 
 @RestController
-@RequestMapping("/acaoes/compra")
+@RequestMapping("/acoes/compra")
 public class CompraController {
 	
 	@RequestMapping(method = RequestMethod.POST)
