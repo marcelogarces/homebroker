@@ -1,7 +1,7 @@
-package br.com.corretora.homebroker.compra.dto;
+package br.com.corretora.homebroker.dto;
 
 
-public class CompraDTO {
+public class CompraDTO implements OrdemCompraVenda {
 	
 	private String codigoAtivo;
 	private Integer quantidade;
