@@ -1,5 +1,7 @@
 package br.com.corretora.homebroker.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import br.com.corretora.homebroker.dto.InfoOrdemDTO;
 */
 
 import br.com.corretora.homebroker.client.IbovespaClient;
-import br.com.corretora.homebroker.dto.OrdemCompraVenda;
+import br.com.corretora.homebroker.dto.OrdemDTO;
 import br.com.corretora.homebroker.enums.TipoOrdem;
 
 @Service
@@ -27,10 +29,15 @@ public class IbovespaService {
 	private IbovespaClient ibovespaClient;
 	
 	
-	public void enviarOrdem(OrdemCompraVenda ordemCompraVenda,TipoOrdem tipoOrdem) {
+	public void enviarOrdem(OrdemDTO ordemCompraVenda,TipoOrdem tipoOrdem) {
 		
 		LOG.info("Enviando ordem de "+ tipoOrdem.getDescricao()+"para Ibovespa");
 		ibovespaClient.enviarOrdem(ordemCompraVenda);
+	}
+	
+	public List<OrdemDTO> listarOrdensPorCPF(String cpf) {
+		
+		return ibovespaClient.listarOrdensPorCPF(cpf);
 	}
 	
 	
